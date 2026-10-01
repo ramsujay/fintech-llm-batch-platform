@@ -1,4 +1,4 @@
-# Visa Transaction Dispute Policy (Internal)
+# Global Bank Transaction Dispute Policy (Internal)
 
 ## 1. Time Limits for Filing Disputes
 - Cardholders must file a dispute within **60 days** of the transaction date. Disputes filed after 60 days are automatically denied.

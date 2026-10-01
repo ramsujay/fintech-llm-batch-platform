@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langgraph.prebuilt import create_react_agent
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage
-from agent_tools import get_customer_account_details, query_visa_policy
+from agent_tools import get_customer_account_details, query_internal_policy
 
 # Load the Groq API key from the .env file
 load_dotenv()
@@ -18,8 +18,8 @@ llm = ChatGroq(model="openai/gpt-oss-120b", temperature=0)
 tools = [get_customer_account_details, query_visa_policy]
 
 # 3. Define the Agent's Brain (System Prompt)
-system_prompt = """You are a strictly logical Visa Dispute Resolution AI. 
-Your objective is to evaluate transaction disputes based ONLY on Visa's internal policies and the customer's account data.
+system_prompt = """You are a strictly Enterprise Banking Dispute Resolution AI. 
+Your objective is to evaluate transaction disputes based ONLY on internal policies and the customer's account data.
 
 For every dispute, you MUST:
 1. Call `query_visa_policy` to find the rules for the specific claim category and amount.

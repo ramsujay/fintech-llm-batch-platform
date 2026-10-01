@@ -42,7 +42,7 @@ def get_customer_account_details(customer_id: str) -> str:
     })
 
 @tool
-def query_visa_policy(search_query: str) -> str:
+def query_internal_policy(search_query: str) -> str:
     """
     Query internal Visa dispute policies to verify thresholds, time limits, 
     and mandatory procedures for chargebacks and fraud claims.
@@ -61,5 +61,5 @@ if __name__ == "__main__":
     print("\n--- Testing Tool: get_customer_account_details ---")
     print(get_customer_account_details.invoke({"customer_id": sample_cid}))
     
-    print("\n--- Testing Tool: query_visa_policy ---")
-    print(query_visa_policy.invoke({"search_query": "time limit to file dispute"}))
+    print("\n--- Testing Tool: query_internal_policy ---")
+    print(query_internal_policy.invoke({"search_query": "time limit to file dispute"}))
