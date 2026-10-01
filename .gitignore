@@ -1,0 +1,18 @@
+# Environment variables (API Keys)
+.env
+
+# Virtual Environment
+venv/
+env/
+
+# Databases and Vector Stores
+chroma_db/
+*.sqlite
+*.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local data (Optional, but good practice so you don't push huge files)
+data/batch_disputes.csv
