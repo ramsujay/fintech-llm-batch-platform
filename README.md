@@ -17,12 +17,13 @@ An asynchronous, fault-tolerant batch processing platform built with **LangGraph
 5. Seed the SQLite database: `python seed_customer_db.py`
 6. Run the batch pipeline: `python batch_processor.py`
 
-   ```mermaid
-graph TD
+
+```mermaid
+flowchart TD
     A[Pending Disputes Batch Ingestion] --> B[Throttled Batch Orchestrator]
     B --> C{LangGraph ReAct Agent}
     
-    subgraph Agent Runtime & Tools
+    subgraph Tools["Agent Runtime & Tools"]
         C <-->|Vector Retrieval / RAG| D[(ChromaDB: Policy Docs)]
         C <-->|SQL Tool Calling| E[(SQLite: Customer Risk & History)]
     end
@@ -31,7 +32,8 @@ graph TD
     F --> G[JSON Validator & Output Sanitizer]
     G -->|Escalate / Approve / Deny| H[(Data Warehouse: ai_decisions Table)]
     
-    subgraph Reliability & Governance Layer
+    subgraph Reliability["Reliability & Governance Layer"]
         B -.->|Backoff on HTTP 429| B
         G -.->|Trap & Correct Fake Tool Calls| C
     end
+```
